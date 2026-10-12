@@ -77,3 +77,4 @@ Run against PostgreSQL with several uvicorn workers (the Dockerfile uses 4), not
 3. Phase 2: SLA tables + Celery beat for deadline checks, email notifications, openpyxl/reportlab exports.
 4. Phase 3: AI chatbot — backend-only OpenAI calls, structured JSON output, user confirmation before ticket creation, safety escalation rules, AI suggestion audit table.
 5. Phase 4: load/security testing, backups, monitoring.
+"# facililty-web-app" 
