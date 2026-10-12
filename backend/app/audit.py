@@ -1,4 +1,4 @@
-from .models import AuditLog
+from models import AuditLog
 
 
 def audit(db, actor, action, entity, entity_id="", detail=""):

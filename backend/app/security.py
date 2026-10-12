@@ -1,7 +1,7 @@
 import hashlib, hmac, os, time
 from datetime import datetime, timedelta, timezone
 import jwt
-from .config import settings
+from config import settings
 
 ITER = 200_000
 
