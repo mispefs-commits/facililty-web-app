@@ -7,7 +7,18 @@ from deps import ADMIN, CLIENT, FM, MGMT, ROLES, TECH, current_user, require, us
 from models import Building, Category, Floor, Region, Site, Tower, User
 from schemas import BuildingIn, CategoryIn, FloorIn, SiteIn, TowerIn, UserCreate, UserPatch
 from security import hash_password
-from schemas import UserOut
+from pydantic import BaseModel
+
+class UserOut(BaseModel):
+    id: int
+    name: str
+    email: str
+    phone: str = ""
+    role: str
+    is_active: bool
+
+    class Config:
+        from_attributes = True
 
 router = APIRouter(prefix="/api", tags=["admin"])
 
