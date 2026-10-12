@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:16
+    environment: { POSTGRES_USER: helpdesk, POSTGRES_PASSWORD: helpdesk, POSTGRES_DB: helpdesk }
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U helpdesk"], interval: 5s, retries: 10 }
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg2://helpdesk:helpdesk@db:5432/helpdesk
+      SECRET_KEY: ${SECRET_KEY:-dev-only-change-me}
+      SEED_DEMO: ${SEED_DEMO:-true}
+      DEMO_PASSWORD: ${DEMO_PASSWORD:-ChangeMe@123}
+      UPLOAD_DIR: /data/uploads
+      CORS_ORIGINS: http://localhost:8080
+    volumes: [uploads:/data/uploads]
+    depends_on: { db: { condition: service_healthy } }
+    ports: ["8000:8000"]
+  frontend:
+    build: ./frontend
+    ports: ["8080:80"]
+    depends_on: [backend]
+volumes: { pgdata: {}, uploads: {} }
