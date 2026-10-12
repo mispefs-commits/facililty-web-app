@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-from ..audit import audit
-from ..db import get_db
-from ..deps import ADMIN, CLIENT, FM, MGMT, ROLES, TECH, current_user, require, user_site_ids
-from ..models import Building, Category, Floor, Region, Site, Tower, User
-from ..schemas import BuildingIn, CategoryIn, FloorIn, SiteIn, TowerIn, UserCreate, UserPatch
-from ..security import hash_password
-from .auth import user_out
+from audit import audit
+from db import get_db
+from deps import ADMIN, CLIENT, FM, MGMT, ROLES, TECH, current_user, require, user_site_ids
+from models import Building, Category, Floor, Region, Site, Tower, User
+from schemas import BuildingIn, CategoryIn, FloorIn, SiteIn, TowerIn, UserCreate, UserPatch
+from security import hash_password
+from auth import user_out
 
 router = APIRouter(prefix="/api", tags=["admin"])
 

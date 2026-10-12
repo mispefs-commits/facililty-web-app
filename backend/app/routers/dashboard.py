@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy import case, func, select
 from sqlalchemy.orm import Session
-from ..db import get_db
-from ..deps import current_user, ADMIN, MGMT, FM, TECH, CLIENT
-from ..models import Feedback, Site, Ticket, User
-from .tickets import scoped
+from db import get_db
+from deps import current_user, ADMIN, MGMT, FM, TECH, CLIENT
+from models import Feedback, Site, Ticket, User
+from tickets import scoped
 
 router = APIRouter(prefix="/api/dashboard", tags=["dashboard"])
 OPEN = ("New", "Acknowledged", "Assigned", "In Progress", "On Hold", "Pending Vendor", "Pending Client", "Escalated", "Reopened")
