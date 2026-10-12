@@ -11,11 +11,11 @@ import httpx
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from .config import settings
-from .deps import ADMIN
-from .models import Attachment, Building, Category, ChatFile, ChatMessage, Floor, Site, Ticket, Tower, User
-from .schemas import TicketIn
-from .utils import normalize_phone, wa_link
+from config import settings
+from deps import ADMIN
+from models import Attachment, Building, Category, ChatFile, ChatMessage, Floor, Site, Ticket, Tower, User
+from schemas import TicketIn
+from utils import normalize_phone, wa_link
 
 PRIO = ["Low", "Medium", "High", "Critical"]
 OPEN = ("New", "Acknowledged", "Assigned", "In Progress", "On Hold", "Pending Vendor", "Pending Client", "Escalated", "Reopened")

@@ -108,3 +108,13 @@ class FeedbackIn(BaseModel):
 
 class ReopenIn(BaseModel):
     reason: str = Field(min_length=3)
+class UserOut(BaseModel):
+    id: int
+    name: str
+    email: str
+    phone: str
+    role: str
+    is_active: bool
+
+    class Config:
+        from_attributes = True
