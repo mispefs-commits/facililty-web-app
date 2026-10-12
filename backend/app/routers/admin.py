@@ -7,7 +7,7 @@ from deps import ADMIN, CLIENT, FM, MGMT, ROLES, TECH, current_user, require, us
 from models import Building, Category, Floor, Region, Site, Tower, User
 from schemas import BuildingIn, CategoryIn, FloorIn, SiteIn, TowerIn, UserCreate, UserPatch
 from security import hash_password
-from schemas import user_out
+from schemas import UserOut
 
 router = APIRouter(prefix="/api", tags=["admin"])
 
