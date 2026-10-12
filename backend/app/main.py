@@ -2,9 +2,9 @@ import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .config import settings
+from config import settings
 from .db import Base, SessionLocal, engine
-from .routers import admin, auth, chat, dashboard, tickets
+from routers import admin, auth, chat, dashboard, tickets
 
 
 @asynccontextmanager
