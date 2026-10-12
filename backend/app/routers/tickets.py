@@ -5,14 +5,14 @@ from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from sqlalchemy import or_, select, func
 from sqlalchemy.orm import Session
-from ..audit import audit
-from ..config import settings
-from ..db import get_db
-from ..deps import ADMIN, CLIENT, FM, MGMT, TECH, current_user, user_site_ids
-from ..models import (Attachment, Building, Category, Comment, Feedback, Floor, Site, Ticket,
+from audit import audit
+from config import settings
+from db import get_db
+from deps import ADMIN, CLIENT, FM, MGMT, TECH, current_user, user_site_ids
+from models import (Attachment, Building, Category, Comment, Feedback, Floor, Site, Ticket,
                       TicketHistory, Tower, User)
-from ..schemas import (AssignIn, CommentIn, FeedbackIn, PriorityIn, ReopenIn, StatusIn, TicketIn)
-from ..utils import normalize_phone, wa_link
+from schemas import (AssignIn, CommentIn, FeedbackIn, PriorityIn, ReopenIn, StatusIn, TicketIn)
+from utils import normalize_phone, wa_link
 
 router = APIRouter(prefix="/api", tags=["tickets"])
 

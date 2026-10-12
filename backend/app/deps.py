@@ -1,9 +1,9 @@
 from fastapi import Depends, HTTPException
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.orm import Session
-from .db import get_db
-from .models import User
-from .security import decode_token
+from db import get_db
+from models import User
+from security import decode_token
 
 bearer = HTTPBearer(auto_error=False)
 ADMIN, MGMT, FM, TECH, CLIENT = "super_admin", "management", "facility_manager", "technician", "client"

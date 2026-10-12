@@ -1,5 +1,5 @@
 from pydantic import BaseModel, EmailStr, Field, field_validator
-from .security import check_password_strength
+from security import check_password_strength
 
 
 class LoginIn(BaseModel):
