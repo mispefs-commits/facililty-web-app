@@ -6,7 +6,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-from import chatbot
+import chatbot
 from config import settings
 from db import get_db
 from deps import ADMIN, CLIENT, FM, current_user, user_site_ids
